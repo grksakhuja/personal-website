@@ -1,5 +1,7 @@
 # Personal Portfolio
 
+**Live Site:** [https://personal-portfolio-production-9347.up.railway.app/](https://personal-portfolio-production-9347.up.railway.app/)
+
 A modern, animated portfolio site built with React, Three.js, and Framer Motion.
 
 ## Tech Stack
