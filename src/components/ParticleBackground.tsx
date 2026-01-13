@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { ISourceOptions } from '@tsparticles/engine';
 
 export default function ParticleBackground() {
   const [init, setInit] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile once on mount
+    setIsMobile(window.innerWidth < 768);
+
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
@@ -14,14 +18,14 @@ export default function ParticleBackground() {
     });
   }, []);
 
-  const options: ISourceOptions = {
+  const options: ISourceOptions = useMemo(() => ({
     fullScreen: false,
     background: {
       color: {
         value: 'transparent',
       },
     },
-    fpsLimit: 60,
+    fpsLimit: isMobile ? 30 : 60, // Lower FPS on mobile
     particles: {
       color: {
         value: '#00d4ff',
@@ -35,7 +39,7 @@ export default function ParticleBackground() {
       },
       move: {
         enable: true,
-        speed: 1,
+        speed: isMobile ? 0.5 : 1, // Slower on mobile
         direction: 'none',
         random: false,
         straight: false,
@@ -49,7 +53,7 @@ export default function ParticleBackground() {
           width: 1920,
           height: 1080,
         },
-        value: 80,
+        value: isMobile ? 30 : 80, // Fewer particles on mobile
       },
       opacity: {
         value: 0.5,
@@ -64,11 +68,11 @@ export default function ParticleBackground() {
     interactivity: {
       events: {
         onHover: {
-          enable: true,
+          enable: !isMobile, // Disable hover effects on mobile
           mode: 'repulse',
         },
         resize: {
-          enable: true,
+          enable: false, // CRITICAL: Disable resize to prevent scroll resets
         },
       },
       modes: {
@@ -79,7 +83,7 @@ export default function ParticleBackground() {
       },
     },
     detectRetina: true,
-  };
+  }), [isMobile]);
 
   if (!init) {
     return null;
