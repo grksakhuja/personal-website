@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion';
 import AnimatedSection from '../components/AnimatedSection';
 import SkillIcon from '../components/SkillIcon';
-import { skills } from '../data/portfolio';
+import { skillCategories } from '../data/portfolio';
 
 export default function Skills() {
+  let globalIndex = 0;
+
   return (
     <section id="skills" className="py-24 bg-[#0f0f0f]">
       <div className="max-w-6xl mx-auto px-6">
@@ -19,16 +22,42 @@ export default function Skills() {
           </div>
         </AnimatedSection>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {skills.map((skill, index) => (
-            <SkillIcon
-              key={skill.name}
-              name={skill.name}
-              icon={skill.icon}
-              index={index}
-            />
-          ))}
+        {/* Categorized Skills */}
+        <div className="space-y-10">
+          {skillCategories.map((category, catIndex) => {
+            return (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: catIndex * 0.1 }}
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-3 mb-4">
+                  <h3 className="text-sm font-semibold text-[#00d4ff] uppercase tracking-wider">
+                    {category.name}
+                  </h3>
+                  <div className="flex-1 h-px bg-[#2a2a2a]" />
+                </div>
+
+                {/* Skills in category */}
+                <div className="flex flex-wrap justify-center gap-4">
+                  {category.skills.map((skill) => {
+                    const index = globalIndex++;
+                    return (
+                      <SkillIcon
+                        key={skill.name}
+                        name={skill.name}
+                        icon={skill.icon}
+                        index={index}
+                      />
+                    );
+                  })}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

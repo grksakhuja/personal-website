@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Code } from 'lucide-react';
+import { ExternalLink, Code, Star } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
@@ -7,6 +7,7 @@ interface ProjectCardProps {
   tech: string[];
   liveUrl: string | null;
   index: number;
+  featured?: boolean;
 }
 
 export default function ProjectCard({
@@ -15,6 +16,7 @@ export default function ProjectCard({
   tech,
   liveUrl,
   index,
+  featured = false,
 }: ProjectCardProps) {
   return (
     <motion.div
@@ -29,22 +31,30 @@ export default function ProjectCard({
       whileHover={{ y: -5 }}
       className="group relative bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] overflow-hidden hover:border-[#00d4ff]/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300"
     >
+      {/* Featured badge */}
+      {featured && (
+        <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/30">
+          <Star size={12} className="text-[#00d4ff]" fill="#00d4ff" />
+          <span className="text-xs text-[#00d4ff] font-medium">Featured</span>
+        </div>
+      )}
+
       {/* Gradient overlay on hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00d4ff]/5 to-[#a855f7]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      <div className="relative p-6">
+      <div className={`relative ${featured ? 'p-8' : 'p-6'}`}>
         {/* Icon */}
-        <div className="w-12 h-12 rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-4">
-          <Code className="text-[#00d4ff]" size={24} />
+        <div className={`${featured ? 'w-14 h-14' : 'w-12 h-12'} rounded-lg bg-[#00d4ff]/10 flex items-center justify-center mb-4`}>
+          <Code className="text-[#00d4ff]" size={featured ? 28 : 24} />
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-[#e5e5e5] mb-2 group-hover:text-[#00d4ff] transition-colors duration-300">
+        <h3 className={`${featured ? 'text-2xl' : 'text-xl'} font-bold text-[#e5e5e5] mb-2 group-hover:text-[#00d4ff] transition-colors duration-300`}>
           {title}
         </h3>
 
         {/* Description */}
-        <p className="text-[#737373] text-sm leading-relaxed mb-4">
+        <p className={`text-[#737373] ${featured ? 'text-base' : 'text-sm'} leading-relaxed mb-4`}>
           {description}
         </p>
 

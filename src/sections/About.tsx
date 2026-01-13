@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Award } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
+import TerminalAnimation from '../components/TerminalAnimation';
 import { personalInfo } from '../data/portfolio';
 
 export default function About() {
@@ -24,28 +25,9 @@ export default function About() {
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Avatar / Visual */}
+          {/* Terminal Animation */}
           <AnimatedSection delay={0.2}>
-            <div className="relative">
-              <div className="w-64 h-64 mx-auto rounded-full bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 flex items-center justify-center border border-[#2a2a2a]">
-                <div className="w-56 h-56 rounded-full bg-[#1a1a1a] flex items-center justify-center">
-                  <span className="text-6xl font-bold gradient-text">RS</span>
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <motion.div
-                animate={{
-                  rotate: 360,
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: 'linear',
-                }}
-                className="absolute inset-0 rounded-full border border-dashed border-[#00d4ff]/20"
-                style={{ margin: '-10px' }}
-              />
-            </div>
+            <TerminalAnimation />
           </AnimatedSection>
 
           {/* Text Content */}

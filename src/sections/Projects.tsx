@@ -3,6 +3,9 @@ import ProjectCard from '../components/ProjectCard';
 import { projects } from '../data/portfolio';
 
 export default function Projects() {
+  const featuredProject = projects.find((p) => p.featured);
+  const otherProjects = projects.filter((p) => !p.featured);
+
   return (
     <section id="projects" className="py-24 bg-[#0a0a0a]">
       <div className="max-w-6xl mx-auto px-6">
@@ -19,16 +22,31 @@ export default function Projects() {
           </div>
         </AnimatedSection>
 
-        {/* Projects Grid */}
+        {/* Featured Project - Full Width */}
+        {featuredProject && (
+          <div className="mb-6">
+            <ProjectCard
+              title={featuredProject.title}
+              description={featuredProject.description}
+              tech={featuredProject.tech}
+              liveUrl={featuredProject.liveUrl}
+              index={0}
+              featured={true}
+            />
+          </div>
+        )}
+
+        {/* Other Projects - 2 Column Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {otherProjects.map((project, index) => (
             <ProjectCard
               key={project.title}
               title={project.title}
               description={project.description}
               tech={project.tech}
               liveUrl={project.liveUrl}
-              index={index}
+              index={index + 1}
+              featured={false}
             />
           ))}
         </div>
