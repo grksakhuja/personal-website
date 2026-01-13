@@ -17,8 +17,8 @@ export default function SkillIcon({ name, icon, index }: SkillIconProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{
-        duration: 0.4,
-        delay: index * 0.05,
+        duration: 0.2,
+        delay: Math.min(index * 0.02, 0.3), // Faster fade, capped delay
         ease: 'easeOut',
       }}
       whileHover={{
