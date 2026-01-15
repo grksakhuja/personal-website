@@ -73,8 +73,8 @@ export default function TerminalAnimation() {
           <span className="text-[#737373] text-sm ml-2 font-mono">terminal</span>
         </div>
 
-        {/* Terminal Content */}
-        <div className="bg-[#0d0d0d] p-4 font-mono text-sm min-h-[200px]">
+        {/* Terminal Content - fixed height to prevent layout shift */}
+        <div className="bg-[#0d0d0d] p-4 font-mono text-sm h-[220px] overflow-hidden">
           {/* Previous completed lines */}
           {terminalContent.slice(0, currentLineIndex).map((line, idx) => (
             <div key={idx} className="mb-3">

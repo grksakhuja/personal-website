@@ -5,17 +5,20 @@ import type { ISourceOptions } from '@tsparticles/engine';
 
 export default function ParticleBackground() {
   const [init, setInit] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // Default true to prevent flash
 
   useEffect(() => {
-    // Detect mobile once on mount
-    setIsMobile(window.innerWidth < 768);
+    // Disable particles entirely on mobile/iOS to prevent crashes
+    const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsMobile(mobile);
 
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+    if (!mobile) {
+      initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
+      }).then(() => {
+        setInit(true);
+      });
+    }
   }, []);
 
   const options: ISourceOptions = useMemo(() => ({
@@ -25,7 +28,7 @@ export default function ParticleBackground() {
         value: 'transparent',
       },
     },
-    fpsLimit: isMobile ? 30 : 60, // Lower FPS on mobile
+    fpsLimit: 60,
     particles: {
       color: {
         value: '#00d4ff',
@@ -39,7 +42,7 @@ export default function ParticleBackground() {
       },
       move: {
         enable: true,
-        speed: isMobile ? 0.5 : 1, // Slower on mobile
+        speed: 1,
         direction: 'none',
         random: false,
         straight: false,
@@ -53,7 +56,7 @@ export default function ParticleBackground() {
           width: 1920,
           height: 1080,
         },
-        value: isMobile ? 30 : 80, // Fewer particles on mobile
+        value: 80,
       },
       opacity: {
         value: 0.5,
@@ -68,11 +71,11 @@ export default function ParticleBackground() {
     interactivity: {
       events: {
         onHover: {
-          enable: !isMobile, // Disable hover effects on mobile
+          enable: true,
           mode: 'repulse',
         },
         resize: {
-          enable: false, // CRITICAL: Disable resize to prevent scroll resets
+          enable: false,
         },
       },
       modes: {
@@ -83,9 +86,10 @@ export default function ParticleBackground() {
       },
     },
     detectRetina: true,
-  }), [isMobile]);
+  }), []);
 
-  if (!init) {
+  // No particles on mobile - just a subtle gradient background
+  if (isMobile || !init) {
     return null;
   }
 

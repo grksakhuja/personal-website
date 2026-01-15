@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { ExternalLink, Code, Star } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -18,19 +19,15 @@ export default function ProjectCard({
   index,
   featured = false,
 }: ProjectCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: 'easeOut',
-      }}
-      whileHover={{ y: -5 }}
-      className="group relative bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] overflow-hidden hover:border-[#00d4ff]/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300"
-    >
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
+    setIsMobile(mobile);
+  }, []);
+
+  const cardContent = (
+    <>
       {/* Featured badge */}
       {featured && (
         <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full bg-[#00d4ff]/10 border border-[#00d4ff]/30">
@@ -88,6 +85,32 @@ export default function ProjectCard({
           </span>
         )}
       </div>
+    </>
+  );
+
+  // On mobile, render without animation
+  if (isMobile) {
+    return (
+      <div className="group relative bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] overflow-hidden">
+        {cardContent}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: 'easeOut',
+      }}
+      whileHover={{ y: -5 }}
+      className="group relative bg-[#1a1a1a] rounded-xl border border-[#2a2a2a] overflow-hidden hover:border-[#00d4ff]/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300"
+    >
+      {cardContent}
     </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -12,6 +12,22 @@ export default function AnimatedSection({
   className = '',
   delay = 0
 }: AnimatedSectionProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Disable animations on mobile to prevent Safari crashes
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
+      setIsMobile(mobile);
+    };
+    checkMobile();
+  }, []);
+
+  // On mobile, render without animation to prevent crashes
+  if (isMobile) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
