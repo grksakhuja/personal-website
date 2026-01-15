@@ -121,7 +121,7 @@ export const projects = [
     title: "Sweets4U",
     description: "Fast, lightweight e-commerce site for a local sweet shop. No CMS needed - products are managed directly in Stripe Dashboard. Features Stripe Checkout for secure payments, automatic product sync via custom CLI tooling, and AI-powered product enrichment.",
     tech: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "Vercel"],
-    liveUrl: null,
+    liveUrl: "https://bobby-sweets.vercel.app/",
     featured: false,
   },
   {
