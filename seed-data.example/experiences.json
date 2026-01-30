@@ -1,0 +1,56 @@
+[
+  {
+    "company": "Current Tech Company",
+    "role": "Senior Software Engineer",
+    "start_date": "2021-01-01",
+    "end_date": null,
+    "location": "Remote",
+    "description": "Leading development of core platform features and mentoring junior developers.",
+    "situation": "Joined a growing startup where the platform needed to scale to handle increasing user demand.",
+    "approach": "Implemented microservices architecture and established code review practices to improve code quality.",
+    "technical_work": "Built RESTful APIs using Node.js, implemented caching layer with Redis, migrated legacy monolith to microservices.",
+    "lessons_learned": "Communication is key when working with distributed teams. Technical debt should be addressed incrementally.",
+    "highlights": [
+      "Reduced API response time by 40%",
+      "Mentored 3 junior developers",
+      "Led migration to microservices architecture"
+    ],
+    "display_order": 1
+  },
+  {
+    "company": "Previous Tech Corp",
+    "role": "Software Engineer",
+    "start_date": "2018-06-01",
+    "end_date": "2020-12-31",
+    "location": "San Francisco, CA",
+    "description": "Developed and maintained web applications for enterprise clients.",
+    "situation": "Worked on a team responsible for building customer-facing applications with high availability requirements.",
+    "approach": "Focused on writing clean, testable code and implementing CI/CD pipelines for faster deployments.",
+    "technical_work": "Built React frontend applications, implemented automated testing with Jest and Cypress, set up GitHub Actions workflows.",
+    "lessons_learned": "Automated testing saves time in the long run. Good documentation helps onboard new team members faster.",
+    "highlights": [
+      "Achieved 90% test coverage",
+      "Reduced deployment time from hours to minutes",
+      "Implemented feature flag system"
+    ],
+    "display_order": 2
+  },
+  {
+    "company": "First Startup Inc",
+    "role": "Junior Developer",
+    "start_date": "2016-07-01",
+    "end_date": "2018-05-31",
+    "location": "New York, NY",
+    "description": "Started career as a junior developer working on various web projects.",
+    "situation": "Entry-level position at a small startup where I had the opportunity to learn multiple technologies.",
+    "approach": "Took initiative to learn new technologies and volunteered for challenging projects.",
+    "technical_work": "Built web applications using JavaScript and PHP, worked with MySQL databases, learned basic DevOps practices.",
+    "lessons_learned": "Startups offer great learning opportunities. Being proactive accelerates career growth.",
+    "highlights": [
+      "Promoted to mid-level developer in 18 months",
+      "Built internal tools that saved 10 hours/week",
+      "Learned full-stack development"
+    ],
+    "display_order": 3
+  }
+]

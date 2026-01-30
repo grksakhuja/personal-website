@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useMobileDetection } from '../hooks/useMobileDetection';
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -12,16 +13,7 @@ export default function AnimatedSection({
   className = '',
   delay = 0
 }: AnimatedSectionProps) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Disable animations on mobile to prevent Safari crashes
-    const checkMobile = () => {
-      const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
-      setIsMobile(mobile);
-    };
-    checkMobile();
-  }, []);
+  const { isMobile } = useMobileDetection();
 
   // On mobile, render without animation to prevent crashes
   if (isMobile) {

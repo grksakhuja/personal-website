@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import { Linkedin, Github, Mail } from 'lucide-react';
+import { useMobileDetection } from '../hooks/useMobileDetection';
 
 interface SocialIconProps {
   name: string;
@@ -16,13 +16,8 @@ const iconComponents: Record<string, React.ComponentType<{ size: number }>> = {
 };
 
 export default function SocialIcon({ name, url, icon, index }: SocialIconProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useMobileDetection();
   const IconComponent = iconComponents[icon] || Mail;
-
-  useEffect(() => {
-    const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
-    setIsMobile(mobile);
-  }, []);
 
   const content = (
     <>

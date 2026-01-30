@@ -1,0 +1,41 @@
+# ========================================================================
+# LOCAL DEVELOPMENT ONLY - DO NOT USE IN PRODUCTION
+# ========================================================================
+# This docker-compose file contains hardcoded credentials for local dev.
+# For production deployments:
+# - Use Docker secrets or environment variables from secure storage
+# - Never commit real credentials to version control
+# - Use managed database services with proper authentication
+# ========================================================================
+
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: portfolio-postgres
+    environment:
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio_dev
+      POSTGRES_DB: portfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: portfolio-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

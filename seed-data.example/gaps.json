@@ -1,0 +1,30 @@
+[
+  {
+    "area": "Mobile Development",
+    "description": "No experience with React Native, iOS, or Android development.",
+    "is_dealbreaker": true,
+    "mitigation": "Would need significant training. Not planning to develop this skill.",
+    "display_order": 1
+  },
+  {
+    "area": "Machine Learning",
+    "description": "Only conceptual understanding of ML. No production experience.",
+    "is_dealbreaker": true,
+    "mitigation": "Can work with ML engineers but cannot build models myself.",
+    "display_order": 2
+  },
+  {
+    "area": "Kubernetes",
+    "description": "Limited hands-on experience. Used managed services but not directly.",
+    "is_dealbreaker": false,
+    "mitigation": "Actively learning. Can work with existing K8s setups.",
+    "display_order": 3
+  },
+  {
+    "area": "Large Team Leadership",
+    "description": "Experience leading small teams (2-3 people). No experience with larger teams.",
+    "is_dealbreaker": false,
+    "mitigation": "Strong IC and small team lead. Would need mentorship for larger teams.",
+    "display_order": 4
+  }
+]

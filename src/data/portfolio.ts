@@ -6,7 +6,7 @@ export const personalInfo = {
     "DevOps Specialist",
     "Cloud Architect"
   ],
-  bio: "Platform Engineer with 10+ years of experience building scalable cloud infrastructure. Passionate about GitOps, Kubernetes, and developer experience.",
+  bio: "Platform Engineer with 10+ years of experience building scalable cloud infrastructure. Passionate about GitOps, Kubernetes, developer experience, and AI-assisted development.",
   location: "Remote | Malaysia",
 };
 
