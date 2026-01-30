@@ -1,6 +1,6 @@
 # Personal Portfolio - AI-Powered Interactive Resume
 
-**Live Site:** [https://personal-portfolio-production-9347.up.railway.app/](https://personal-portfolio-production-9347.up.railway.app/)
+**Live Site:** [https://rohitsakhuja.dev/](https://rohitsakhuja.dev/)
 
 An AI-powered portfolio website featuring interactive job description analysis, contextual AI chat, and a modern animated interface. Built with React, TypeScript, and dual AI provider support.
 
