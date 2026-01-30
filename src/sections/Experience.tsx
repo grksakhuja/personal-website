@@ -10,7 +10,7 @@ const experiences = [
     company: 'Drivvn',
     role: 'Senior Platform Engineer',
     start_date: '2021-01-01',
-    end_date: null,
+    end_date: '2026-02-01',
     location: 'Fully Remote (UK company, Malaysia-based)',
     description: 'Continuously improving platform engineering capabilities across Azure environments supporting high-traffic EMEA automotive commerce clients.',
     highlights: [

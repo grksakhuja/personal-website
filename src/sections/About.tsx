@@ -17,8 +17,8 @@ export default function About() {
         <AnimatedSection>
           {/* Section Title */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#e5e5e5] mb-4">
-              About <span className="text-[#00d4ff]">Me</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[--color-text-primary] mb-4">
+              About <span className="text-[--color-cyan]">Me</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] mx-auto rounded-full" />
           </div>

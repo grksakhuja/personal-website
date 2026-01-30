@@ -48,7 +48,7 @@ export default function Skills() {
         <AnimatedSection>
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="section-heading text-3xl md:text-4xl text-[--color-text-primary] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[--color-text-primary] mb-4">
               Skills Self-Assessment
             </h2>
             <p className="text-[--color-text-muted] text-lg max-w-2xl mx-auto">
@@ -58,12 +58,6 @@ export default function Skills() {
 
           {/* Skills Matrix */}
           <SkillsMatrix skills={skillsData} />
-
-          {/* Note */}
-          <p className="text-center text-sm text-[--color-text-muted] mt-10 max-w-xl mx-auto">
-            This isn't a humble-brag. Knowing my gaps helps you determine fit.
-            I'm always learning, but these assessments reflect current capabilities.
-          </p>
         </AnimatedSection>
       </div>
     </section>

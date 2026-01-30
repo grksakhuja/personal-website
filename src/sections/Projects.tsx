@@ -9,8 +9,8 @@ export default function Projects() {
         <AnimatedSection>
           {/* Section Title */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
-              Featured <span className="text-[var(--color-teal)]">Projects</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[--color-text-primary] mb-4">
+              Featured <span className="text-[--color-teal]">Projects</span>
             </h2>
             <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
               A selection of projects I've worked on
