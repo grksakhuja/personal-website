@@ -62,7 +62,7 @@ An AI-powered portfolio website featuring interactive job description analysis, 
 ### Rate Limiting
 - Redis-backed with in-memory fallback
 - JD Analysis: 10 requests/hour per IP
-- Chat: 30 requests/hour per IP
+- Chat: 15 requests/hour per IP
 - Fail-closed behavior on critical endpoints
 
 ### Input Validation
