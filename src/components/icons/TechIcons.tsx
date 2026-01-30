@@ -31,7 +31,9 @@ import {
   SiApachekafka,
   SiGnubash,
   SiClaude,
+  SiReact,
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
 // Custom Azure icon
@@ -155,6 +157,10 @@ const iconColors: Record<string, string> = {
   claude: '#D4A27F',
   windsurf: '#00D4AA',
   vscode: '#007ACC',
+  // Frontend
+  react: '#61DAFB',
+  // JVM
+  java: '#ED8B00',
 };
 
 // Map icon names to components
@@ -211,6 +217,10 @@ const iconComponents: Record<string, IconType> = {
   claude: SiClaude,
   windsurf: WindsurfIcon,
   vscode: VSCodeIcon,
+  // Frontend
+  react: SiReact,
+  // JVM
+  java: FaJava,
 };
 
 interface TechIconProps {

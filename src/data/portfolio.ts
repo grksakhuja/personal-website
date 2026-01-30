@@ -6,7 +6,7 @@ export const personalInfo = {
     "DevOps Specialist",
     "Cloud Architect"
   ],
-  bio: "Platform Engineer with 10+ years of experience building scalable cloud infrastructure. Passionate about GitOps, Kubernetes, and developer experience.",
+  bio: "Platform Engineer with 10+ years of experience building scalable cloud infrastructure. Passionate about GitOps, Kubernetes, developer experience, and AI-assisted development.",
   location: "Remote | Malaysia",
 };
 
@@ -121,7 +121,7 @@ export const projects = [
     title: "Sweets4U",
     description: "Fast, lightweight e-commerce site for a local sweet shop. No CMS needed - products are managed directly in Stripe Dashboard. Features Stripe Checkout for secure payments, automatic product sync via custom CLI tooling, and AI-powered product enrichment.",
     tech: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS", "Vercel"],
-    liveUrl: null,
+    liveUrl: "https://bobby-sweets.vercel.app/",
     featured: false,
   },
   {

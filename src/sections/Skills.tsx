@@ -1,64 +1,70 @@
-import { motion } from 'framer-motion';
 import AnimatedSection from '../components/AnimatedSection';
-import SkillIcon from '../components/SkillIcon';
-import { skillCategories } from '../data/portfolio';
+import SkillsMatrix from '../components/SkillsMatrix';
+
+// Skills data with proficiency levels
+// This will eventually come from the database
+const skillsData = [
+  // Strong skills (teal)
+  { name: 'Azure', icon: 'azure', proficiency: 'strong' as const },
+  { name: 'Kubernetes', icon: 'kubernetes', proficiency: 'strong' as const },
+  { name: 'Terraform', icon: 'terraform', proficiency: 'strong' as const },
+  { name: 'Docker', icon: 'docker', proficiency: 'strong' as const },
+  { name: 'Argo CD', icon: 'argo', proficiency: 'strong' as const },
+  { name: 'GitHub Actions', icon: 'githubactions', proficiency: 'strong' as const },
+  { name: 'Prometheus', icon: 'prometheus', proficiency: 'strong' as const },
+  { name: 'Grafana', icon: 'grafana', proficiency: 'strong' as const },
+  { name: 'Linux', icon: 'linux', proficiency: 'strong' as const },
+  { name: 'Git', icon: 'git', proficiency: 'strong' as const },
+  { name: 'Bash', icon: 'bash', proficiency: 'strong' as const },
+
+  // Moderate skills (gray)
+  { name: 'AWS', icon: 'aws', proficiency: 'moderate' as const },
+  { name: 'Helm', icon: 'helm', proficiency: 'moderate' as const },
+  { name: 'Kustomize', icon: 'kustomize', proficiency: 'moderate' as const },
+  { name: 'Flux', icon: 'flux', proficiency: 'moderate' as const },
+  { name: 'GitLab CI', icon: 'gitlab', proficiency: 'moderate' as const },
+  { name: 'Jenkins', icon: 'jenkins', proficiency: 'moderate' as const },
+  { name: 'Python', icon: 'python', proficiency: 'moderate' as const },
+  { name: 'Go', icon: 'go', proficiency: 'moderate' as const },
+  { name: 'TypeScript', icon: 'typescript', proficiency: 'moderate' as const },
+  { name: 'PostgreSQL', icon: 'postgresql', proficiency: 'moderate' as const },
+  { name: 'Redis', icon: 'redis', proficiency: 'moderate' as const },
+  { name: 'Istio', icon: 'istio', proficiency: 'moderate' as const },
+  { name: 'Vault', icon: 'vault', proficiency: 'moderate' as const },
+  { name: 'Loki', icon: 'loki', proficiency: 'moderate' as const },
+
+  // Gap skills (amber)
+  { name: 'React Native', icon: 'react', proficiency: 'gap' as const },
+  { name: 'Machine Learning', icon: 'python', proficiency: 'gap' as const },
+  { name: 'Data Science', icon: 'python', proficiency: 'gap' as const },
+  { name: 'Mobile Dev', icon: 'react', proficiency: 'gap' as const },
+  { name: 'Java', icon: 'java', proficiency: 'gap' as const },
+];
 
 export default function Skills() {
-  let globalIndex = 0;
-
   return (
-    <section id="skills" className="py-24 bg-[#0f0f0f]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="skills" className="py-20 px-4 bg-[--color-surface]">
+      <div className="max-w-5xl mx-auto">
         <AnimatedSection>
-          {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#e5e5e5] mb-4">
-              Tech <span className="text-[#00d4ff]">Stack</span>
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="section-heading text-3xl md:text-4xl text-[--color-text-primary] mb-4">
+              Skills Self-Assessment
             </h2>
-            <p className="text-[#737373] max-w-2xl mx-auto">
-              Technologies and tools I use to build scalable, reliable infrastructure
+            <p className="text-[--color-text-muted] text-lg max-w-2xl mx-auto">
+              Honest assessment of where I'm strong, where I'm competent, and where I have gaps.
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] mx-auto rounded-full mt-4" />
           </div>
+
+          {/* Skills Matrix */}
+          <SkillsMatrix skills={skillsData} />
+
+          {/* Note */}
+          <p className="text-center text-sm text-[--color-text-muted] mt-10 max-w-xl mx-auto">
+            This isn't a humble-brag. Knowing my gaps helps you determine fit.
+            I'm always learning, but these assessments reflect current capabilities.
+          </p>
         </AnimatedSection>
-
-        {/* Categorized Skills */}
-        <div className="space-y-10">
-          {skillCategories.map((category, catIndex) => {
-            return (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: catIndex * 0.1 }}
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <h3 className="text-sm font-semibold text-[#00d4ff] uppercase tracking-wider">
-                    {category.name}
-                  </h3>
-                  <div className="flex-1 h-px bg-[#2a2a2a]" />
-                </div>
-
-                {/* Skills in category */}
-                <div className="flex flex-wrap justify-center gap-4">
-                  {category.skills.map((skill) => {
-                    const index = globalIndex++;
-                    return (
-                      <SkillIcon
-                        key={skill.name}
-                        name={skill.name}
-                        icon={skill.icon}
-                        index={index}
-                      />
-                    );
-                  })}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
       </div>
     </section>
   );

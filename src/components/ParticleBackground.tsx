@@ -2,24 +2,22 @@ import { useEffect, useState, useMemo } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { ISourceOptions } from '@tsparticles/engine';
+import { useMobileDetection } from '../hooks/useMobileDetection';
 
 export default function ParticleBackground() {
   const [init, setInit] = useState(false);
-  const [isMobile, setIsMobile] = useState(true); // Default true to prevent flash
+  const { isMobile } = useMobileDetection();
 
   useEffect(() => {
     // Disable particles entirely on mobile/iOS to prevent crashes
-    const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
-    setIsMobile(mobile);
-
-    if (!mobile) {
+    if (!isMobile) {
       initParticlesEngine(async (engine) => {
         await loadSlim(engine);
       }).then(() => {
         setInit(true);
       });
     }
-  }, []);
+  }, [isMobile]);
 
   const options: ISourceOptions = useMemo(() => ({
     fullScreen: false,

@@ -1,7 +1,9 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Icosahedron, MeshDistortMaterial } from '@react-three/drei';
 import type { Mesh } from 'three';
+import { useMobileDetection } from '../hooks/useMobileDetection';
+import { WebGLErrorBoundary } from './WebGLErrorBoundary';
 
 function RotatingIcosahedron() {
   const meshRef = useRef<Mesh>(null);
@@ -28,15 +30,15 @@ function RotatingIcosahedron() {
   );
 }
 
-// Simple CSS fallback for mobile
+// Simple CSS fallback for mobile - static glow to reduce CPU load
 function MobileFallback() {
   return (
     <div className="w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
       <div className="relative w-48 h-48">
-        {/* Animated gradient circle */}
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00d4ff]/20 to-[#a855f7]/20 animate-pulse" />
-        <div className="absolute inset-4 rounded-full border border-[#00d4ff]/30 animate-spin" style={{ animationDuration: '8s' }} />
-        <div className="absolute inset-8 rounded-full border border-[#00d4ff]/50 animate-spin" style={{ animationDuration: '12s', animationDirection: 'reverse' }} />
+        {/* Simple static glow - no spinning animations */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#00d4ff]/30 to-[#a855f7]/20 blur-xl" />
+        <div className="absolute inset-4 rounded-full border border-[#00d4ff]/40" />
+        <div className="absolute inset-8 rounded-full border border-[#00d4ff]/30" />
         <div className="absolute inset-12 rounded-full bg-[#00d4ff]/10" />
       </div>
     </div>
@@ -44,34 +46,22 @@ function MobileFallback() {
 }
 
 export default function Hero3D() {
-  const [isMobile, setIsMobile] = useState(true); // Default to mobile to prevent flash
+  const { isMobile, isIOSSafari } = useMobileDetection();
 
-  useEffect(() => {
-    // Check if mobile or iOS Safari (which has WebGL issues)
-    const checkMobile = () => {
-      const isMobileDevice = window.innerWidth < 768;
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-      // Disable 3D on mobile OR iOS Safari
-      setIsMobile(isMobileDevice || (isIOS && isSafari));
-    };
-
-    checkMobile();
-  }, []);
-
-  // Show simple fallback on mobile/iOS to prevent crashes
-  if (isMobile) {
-    return <MobileFallback />;
+  // Hide completely on mobile - it doesn't add value and takes up space
+  if (isMobile || isIOSSafari) {
+    return null;
   }
 
   return (
     <div className="w-64 h-64 md:w-80 md:h-80">
-      <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <RotatingIcosahedron />
-      </Canvas>
+      <WebGLErrorBoundary fallback={<MobileFallback />}>
+        <Canvas camera={{ position: [0, 0, 4], fov: 50 }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} intensity={1} />
+          <RotatingIcosahedron />
+        </Canvas>
+      </WebGLErrorBoundary>
     </div>
   );
 }

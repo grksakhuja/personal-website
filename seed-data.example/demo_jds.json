@@ -1,0 +1,40 @@
+[
+  {
+    "job_description": "Senior Full Stack Engineer\n\nAbout the Role:\nWe're looking for a Senior Full Stack Engineer to join our product team. You'll be responsible for building new features, improving our codebase, and mentoring junior developers.\n\nRequirements:\n- 5+ years of software development experience\n- Strong React and TypeScript skills\n- Experience with Node.js and RESTful APIs\n- Familiarity with SQL databases\n- Good communication skills\n\nNice to have:\n- Experience with AWS\n- GraphQL experience\n- Previous startup experience",
+    "verdict": "strong_fit",
+    "where_i_dont_fit": [
+      "GraphQL experience is listed as nice-to-have - I have some experience but it's not my strongest area"
+    ],
+    "what_transfers": [
+      "8 years of software development experience",
+      "Strong React and TypeScript skills from daily use",
+      "Extensive Node.js and API development experience",
+      "Solid PostgreSQL and SQL database experience",
+      "AWS experience with core services",
+      "Previous startup experience"
+    ],
+    "recommendation": "This is a strong match for my background. The core requirements align well with my experience. I'd be excited to discuss this further.",
+    "opening_paragraph": "This role aligns very well with my background. I have deep experience with the core tech stack (React, TypeScript, Node.js) and have been working in similar roles for the past several years.",
+    "is_demo": true,
+    "demo_type": "strong_fit"
+  },
+  {
+    "job_description": "Senior Mobile Engineer\n\nAbout the Role:\nWe need a Senior Mobile Engineer to lead our React Native development and build our iOS and Android apps.\n\nRequirements:\n- 4+ years React Native experience\n- Published apps on App Store and Google Play\n- Strong TypeScript skills\n- Experience with mobile CI/CD\n\nNice to have:\n- Native iOS or Android experience\n- Experience with mobile analytics",
+    "verdict": "probably_not",
+    "where_i_dont_fit": [
+      "I have no React Native experience",
+      "I've never published an app to app stores",
+      "No experience with mobile CI/CD",
+      "No understanding of mobile platform specifics"
+    ],
+    "what_transfers": [
+      "Strong TypeScript skills from web development",
+      "General software engineering experience",
+      "CI/CD experience (though not mobile-specific)"
+    ],
+    "recommendation": "I'm not the right person for this role. Mobile development is explicitly a gap in my experience. You need someone who can hit the ground running with React Native.",
+    "opening_paragraph": "I have to be upfront: mobile development is not my area. This role requires React Native expertise that I simply don't have.",
+    "is_demo": true,
+    "demo_type": "weak_fit"
+  }
+]

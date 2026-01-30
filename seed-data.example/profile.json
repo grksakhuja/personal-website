@@ -1,0 +1,12 @@
+{
+  "name": "Jane Doe",
+  "title": "Senior Software Engineer",
+  "taglines": ["Full Stack Developer", "Cloud Enthusiast", "Problem Solver"],
+  "bio": "Experienced software engineer with a passion for building scalable applications and solving complex problems. Enjoys working with modern web technologies and cloud platforms.",
+  "location": "Remote | San Francisco, CA",
+  "status": "open",
+  "preferred_roles": ["Senior Software Engineer", "Tech Lead", "Staff Engineer"],
+  "preferred_company_stages": ["Series A+", "Growth Stage", "Scale-up"],
+  "years_experience": 8,
+  "education_summary": "BS Computer Science, Example University (2012-2016)"
+}

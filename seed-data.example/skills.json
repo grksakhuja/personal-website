@@ -1,0 +1,18 @@
+[
+  {"name": "JavaScript", "category": "Languages", "icon": "javascript", "proficiency": "strong", "years_used": 8, "context": "Primary programming language. ES6+, async/await, functional patterns.", "display_order": 1},
+  {"name": "TypeScript", "category": "Languages", "icon": "typescript", "proficiency": "strong", "years_used": 5, "context": "Preferred for larger projects. Type safety and better tooling.", "display_order": 2},
+  {"name": "React", "category": "Frontend", "icon": "react", "proficiency": "strong", "years_used": 5, "context": "Primary frontend framework. Hooks, context, and performance optimization.", "display_order": 3},
+  {"name": "Node.js", "category": "Backend", "icon": "nodejs", "proficiency": "strong", "years_used": 6, "context": "Backend runtime. Express, Fastify, and serverless functions.", "display_order": 4},
+  {"name": "PostgreSQL", "category": "Data", "icon": "postgresql", "proficiency": "strong", "years_used": 5, "context": "Primary database. Schema design, queries, optimization.", "display_order": 5},
+  {"name": "Git", "category": "Tooling", "icon": "git", "proficiency": "strong", "years_used": 8, "context": "Version control expert. Branching strategies, rebasing.", "display_order": 6},
+
+  {"name": "AWS", "category": "Cloud", "icon": "aws", "proficiency": "moderate", "years_used": 3, "context": "EC2, S3, Lambda, RDS. Comfortable but not an expert.", "display_order": 10},
+  {"name": "Docker", "category": "DevOps", "icon": "docker", "proficiency": "moderate", "years_used": 3, "context": "Containerization for development and production.", "display_order": 11},
+  {"name": "Python", "category": "Languages", "icon": "python", "proficiency": "moderate", "years_used": 2, "context": "Scripting and automation. Basic data analysis.", "display_order": 12},
+  {"name": "Redis", "category": "Data", "icon": "redis", "proficiency": "moderate", "years_used": 3, "context": "Caching and session storage.", "display_order": 13},
+  {"name": "GraphQL", "category": "Backend", "icon": "graphql", "proficiency": "moderate", "years_used": 2, "context": "API design. Apollo Server and Client.", "display_order": 14},
+
+  {"name": "Kubernetes", "category": "DevOps", "icon": "kubernetes", "proficiency": "gap", "years_used": 0, "context": "Conceptual understanding. Would need training for production use.", "display_order": 20},
+  {"name": "Machine Learning", "category": "AI/ML", "icon": "python", "proficiency": "gap", "years_used": 0, "context": "Basic understanding. No production experience.", "display_order": 21},
+  {"name": "Mobile Development", "category": "Mobile", "icon": "react", "proficiency": "gap", "years_used": 0, "context": "No React Native or native mobile experience.", "display_order": 22}
+]

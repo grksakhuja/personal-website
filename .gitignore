@@ -25,3 +25,14 @@ dist-ssr
 
 # Backup files
 *.bak
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Personal documents (CVs, resumes)
+*.pdf
+
+# Personal seed data (use seed-data.example/ as template)
+seed-data/

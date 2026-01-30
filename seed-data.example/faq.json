@@ -1,0 +1,37 @@
+[
+  {
+    "question": "What is your experience with React?",
+    "answer": "I've been working with React for about 5 years. I'm comfortable with hooks, context, performance optimization, and building complex component hierarchies. I've also worked with Next.js for server-side rendering.",
+    "category": "technical",
+    "is_suggested": true,
+    "display_order": 1
+  },
+  {
+    "question": "How do you approach testing?",
+    "answer": "I believe in pragmatic testing. Unit tests for business logic, integration tests for API endpoints, and end-to-end tests for critical user flows. I aim for good coverage without testing implementation details.",
+    "category": "technical",
+    "is_suggested": true,
+    "display_order": 2
+  },
+  {
+    "question": "How do you work with teams?",
+    "answer": "I value clear communication and collaboration. I prefer asynchronous communication for most things but know when to jump on a call. I'm a strong believer in code reviews and knowledge sharing.",
+    "category": "process",
+    "is_suggested": true,
+    "display_order": 3
+  },
+  {
+    "question": "What type of roles are you looking for?",
+    "answer": "I'm looking for senior or staff-level engineering roles where I can have technical impact while mentoring others. I prefer product-focused companies with interesting technical challenges.",
+    "category": "career",
+    "is_suggested": false,
+    "display_order": 4
+  },
+  {
+    "question": "What are your weaknesses?",
+    "answer": "I don't have mobile development experience. My DevOps skills are developing but not expert-level. I'm better at building features than managing large teams.",
+    "category": "personal",
+    "is_suggested": false,
+    "display_order": 5
+  }
+]

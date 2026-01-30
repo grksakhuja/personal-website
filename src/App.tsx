@@ -1,22 +1,29 @@
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import About from './sections/About';
+import Experience from './sections/Experience';
 import Skills from './sections/Skills';
+import JDAnalyzer from './sections/JDAnalyzer';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
+import ChatDrawer from './components/ChatDrawer';
+import { ChatProvider } from './context/ChatContext';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
+    <ChatProvider>
+      <div className="min-h-screen bg-[--color-background]">
+        <Navbar />
+        <main>
+          <Hero />
+          <JDAnalyzer />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <ChatDrawer />
+      </div>
+    </ChatProvider>
   );
 }
 

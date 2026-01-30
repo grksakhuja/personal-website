@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import { techIcons, techIconColors } from './icons/TechIcons';
+import { useMobileDetection } from '../hooks/useMobileDetection';
 
 interface SkillIconProps {
   name: string;
@@ -9,14 +9,9 @@ interface SkillIconProps {
 }
 
 export default function SkillIcon({ name, icon, index }: SkillIconProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const { isMobile } = useMobileDetection();
   const IconComponent = techIcons[icon];
   const color = techIconColors[icon] || '#e5e5e5';
-
-  useEffect(() => {
-    const mobile = window.innerWidth < 768 || /iPad|iPhone|iPod/.test(navigator.userAgent);
-    setIsMobile(mobile);
-  }, []);
 
   const content = (
     <>
