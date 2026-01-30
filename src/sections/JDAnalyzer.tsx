@@ -133,6 +133,7 @@ export default function JDAnalyzer() {
             <p className="text-[--color-text-muted] text-lg max-w-2xl mx-auto">
               Paste a job description. Get an honest assessment of whether I'm the right person—including when I'm not.
             </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] mx-auto rounded-full mt-4" />
           </div>
 
           {/* Input area */}

@@ -59,7 +59,7 @@ export default function TerminalAnimation() {
   }, [displayedCommand, showOutput, currentLineIndex, isTyping]);
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full md:w-[400px] mx-auto">
       {/* Terminal Window */}
       <div className="rounded-lg overflow-hidden border border-[#2a2a2a] shadow-2xl">
         {/* Title Bar */}
@@ -70,11 +70,11 @@ export default function TerminalAnimation() {
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
             <div className="w-3 h-3 rounded-full bg-[#27ca3f]" />
           </div>
-          <span className="text-[#737373] text-sm ml-2 font-mono">terminal</span>
+          <span className="text-[#737373] text-sm ml-2 font-mono">iTerm2</span>
         </div>
 
         {/* Terminal Content - fixed height to prevent layout shift */}
-        <div className="bg-[#0d0d0d] p-4 font-mono text-sm h-[220px] overflow-hidden">
+        <div className="bg-[#0d0d0d] p-4 font-mono text-sm text-left h-[220px] overflow-hidden">
           {/* Previous completed lines */}
           {terminalContent.slice(0, currentLineIndex).map((line, idx) => (
             <div key={idx} className="mb-3">

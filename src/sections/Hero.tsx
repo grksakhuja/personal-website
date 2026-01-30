@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, memo } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, MessageSquare, Sparkles } from 'lucide-react';
 import ParticleBackground from '../components/ParticleBackground';
-import Hero3D from '../components/Hero3D';
+import TerminalAnimation from '../components/TerminalAnimation';
 import StatusBadge from '../components/StatusBadge';
 import CompanyBadges from '../components/CompanyBadges';
 import { useChat } from '../context/ChatContext';
@@ -125,6 +125,13 @@ export default function Hero() {
             <TypingText taglines={personalInfo.taglines} isMobile={isMobile} />
           </div>
 
+          {/* Terminal - shown inline on mobile only, desktop shows it on the right */}
+          {isMobile && (
+            <div className="mb-6">
+              <TerminalAnimation />
+            </div>
+          )}
+
           {/* Bio */}
           <p className="text-[--color-text-muted] max-w-lg mb-6 leading-relaxed">
             {personalInfo.bio}
@@ -162,10 +169,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 3D Element */}
-        <div className="flex-shrink-0">
-          <Hero3D />
-        </div>
+        {/* Terminal - shown on right side for desktop only */}
+        {!isMobile && (
+          <div className="flex-shrink-0">
+            <TerminalAnimation />
+          </div>
+        )}
       </div>
 
       {/* Scroll indicator - static on mobile */}

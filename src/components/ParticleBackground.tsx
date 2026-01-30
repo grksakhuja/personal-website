@@ -9,17 +9,76 @@ export default function ParticleBackground() {
   const { isMobile } = useMobileDetection();
 
   useEffect(() => {
-    // Disable particles entirely on mobile/iOS to prevent crashes
-    if (!isMobile) {
-      initParticlesEngine(async (engine) => {
-        await loadSlim(engine);
-      }).then(() => {
-        setInit(true);
-      });
-    }
-  }, [isMobile]);
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
 
-  const options: ISourceOptions = useMemo(() => ({
+  // Mobile-optimized options: fewer particles, lower FPS, no hover interaction
+  const mobileOptions: ISourceOptions = useMemo(() => ({
+    fullScreen: false,
+    background: {
+      color: {
+        value: 'transparent',
+      },
+    },
+    fpsLimit: 30, // Lower FPS for battery life
+    particles: {
+      color: {
+        value: '#00d4ff',
+      },
+      links: {
+        color: '#00d4ff',
+        distance: 120,
+        enable: true,
+        opacity: 0.2,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 0.5, // Slower movement
+        direction: 'none',
+        random: false,
+        straight: false,
+        outModes: {
+          default: 'bounce',
+        },
+      },
+      number: {
+        density: {
+          enable: true,
+          width: 1920,
+          height: 1080,
+        },
+        value: 50, // Moderate particle count for mobile
+      },
+      opacity: {
+        value: 0.5,
+      },
+      shape: {
+        type: 'circle',
+      },
+      size: {
+        value: { min: 1, max: 2 },
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: {
+          enable: false, // Disable hover on mobile
+        },
+        resize: {
+          enable: false,
+        },
+      },
+    },
+    detectRetina: false, // Disable retina for performance
+  }), []);
+
+  // Desktop options: full experience
+  const desktopOptions: ISourceOptions = useMemo(() => ({
     fullScreen: false,
     background: {
       color: {
@@ -86,15 +145,14 @@ export default function ParticleBackground() {
     detectRetina: true,
   }), []);
 
-  // No particles on mobile - just a subtle gradient background
-  if (isMobile || !init) {
+  if (!init) {
     return null;
   }
 
   return (
     <Particles
       id="tsparticles"
-      options={options}
+      options={isMobile ? mobileOptions : desktopOptions}
       className="absolute inset-0 -z-10"
     />
   );

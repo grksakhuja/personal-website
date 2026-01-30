@@ -95,6 +95,7 @@ export default function Experience() {
             <p className="text-[--color-text-muted] text-lg max-w-2xl mx-auto">
               A timeline of my professional journey, with context for how I approach problems.
             </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] mx-auto rounded-full mt-4" />
           </div>
 
           {/* Timeline */}

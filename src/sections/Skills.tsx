@@ -54,6 +54,7 @@ export default function Skills() {
             <p className="text-[--color-text-muted] text-lg max-w-2xl mx-auto">
               Honest assessment of where I'm strong, where I'm competent, and where I have gaps.
             </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#00d4ff] to-[#a855f7] mx-auto rounded-full mt-4" />
           </div>
 
           {/* Skills Matrix */}
