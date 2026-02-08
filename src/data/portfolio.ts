@@ -111,6 +111,13 @@ export const skillCategories = [
 
 export const projects = [
   {
+    title: "Roots Men's Grooming",
+    description: "Premium barbershop website for a Kuala Lumpur-based men's grooming business. Features video backgrounds, online booking integration, service pricing, team showcase, and location information.",
+    tech: ["HTML", "CSS", "JavaScript", "Vercel"],
+    liveUrl: "https://roots-hairdressers.vercel.app/",
+    featured: true,
+  },
+  {
     title: "Sugar Art Diva",
     description: "Custom artisan cake business website with online ordering and gallery showcase. Built through a consultative process to meet specific business needs.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Railway"],
@@ -141,7 +148,7 @@ export const projects = [
 ];
 
 export const socialLinks = [
-  { name: "LinkedIn", url: "https://linkedin.com/in/rohitsakhuja", icon: "linkedin" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/rohit-sakhuja", icon: "linkedin" },
   { name: "GitHub", url: "https://github.com/grksakhuja", icon: "github" },
 ];
 

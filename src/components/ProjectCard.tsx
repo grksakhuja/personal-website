@@ -86,7 +86,7 @@ export default function ProjectCard({
   // On mobile, render without animation
   if (isMobile) {
     return (
-      <div className="group relative bg-[var(--color-surface)] rounded-xl border border-white/[0.08] overflow-hidden backdrop-blur-sm">
+      <div className="group relative h-full bg-[var(--color-surface)] rounded-xl border border-white/[0.08] overflow-hidden backdrop-blur-sm">
         {cardContent}
       </div>
     );
@@ -103,7 +103,7 @@ export default function ProjectCard({
         ease: 'easeOut',
       }}
       whileHover={{ y: -5 }}
-      className="group relative bg-[var(--color-surface)] rounded-xl border border-white/[0.08] overflow-hidden hover:border-[var(--color-teal)]/50 hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] transition-all duration-300 backdrop-blur-sm"
+      className="group relative h-full bg-[var(--color-surface)] rounded-xl border border-white/[0.08] overflow-hidden hover:border-[var(--color-teal)]/50 hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] transition-all duration-300 backdrop-blur-sm"
     >
       {cardContent}
     </motion.div>

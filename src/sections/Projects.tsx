@@ -21,16 +21,26 @@ export default function Projects() {
 
         {/* All Projects - 2x2 Grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              description={project.description}
-              tech={project.tech}
-              liveUrl={project.liveUrl}
-              index={index}
-            />
-          ))}
+          {projects.map((project, index) => {
+            const isLastItem = index === projects.length - 1;
+            const isOddCount = projects.length % 2 !== 0;
+            const shouldSpanFull = isLastItem && isOddCount;
+
+            return (
+              <div
+                key={project.title}
+                className={`h-full ${shouldSpanFull ? 'md:col-span-2 md:max-w-[calc(50%-0.75rem)] md:mx-auto' : ''}`}
+              >
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  tech={project.tech}
+                  liveUrl={project.liveUrl}
+                  index={index}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
